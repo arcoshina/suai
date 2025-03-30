@@ -1,0 +1,41 @@
+/* 語言切換樣式 */
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* 上傳表單動畫 */
+.upload-trigger {
+  border: 2px dashed #ccc;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#upload-form {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+/* 錯誤提示 */
+.error {
+  border: 1px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+}

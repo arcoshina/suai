@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suai Profile</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <!-- 語言切換 -->
+  <div class="language-switch">
+    <span>中文</span>
+    <label class="switch">
+      <input type="checkbox" id="language-toggle">
+      <span class="slider"></span>
+    </label>
+    <span>English</span>
+  </div>
+
+  <!-- 上傳紀錄 -->
+  <section class="upload-history">
+    <h2 id="history-title">Upload History</h2>
+    <div id="history-list" class="history-container"></div>
+    <a href="#" id="show-all" class="hidden">▼ Show Full History</a>
+  </section>
+
+  <!-- 上傳區塊 -->
+  <div class="upload-section">
+    <div class="upload-trigger" onclick="toggleUploadForm()">
+      <div class="upload-header">我要提供程式碼</div>
+    </div>
+    
+    <form id="upload-form" class="hidden">
+      <!-- 必填欄位 -->
+      <div class="form-group required">
+        <label id="contract-address-label">智能合約地址</label>
+        <input type="text" id="contract-address" required>
+      </div>
+      
+      <!-- 其他欄位... -->
+      
+      <!-- 授權條款 -->
+      <div class="terms">
+        <a href="#" onclick="toggleTerms(event)">上傳即表示同意條款</a>
+        <div id="terms-content" class="hidden">
+          <!-- 條款內容 -->
+        </div>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="exclusive-license">
+        <label id="license-label" for="exclusive-license">獨家授權給站方</label>
+      </div>
+
+      <button type="button" onclick="submitForm()" id="submit-btn">確認上傳</button>
+    </form>
+  </div>
+
+  <script src="profile.js"></script>
+</body>
+</html>
