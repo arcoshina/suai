@@ -39,3 +39,18 @@ async function submitForm() {
     showErrorMessage('上傳失敗，請稍後再試');
   }
 }
+
+// 新增表單切換函數
+let isFormExpanded = false;
+function toggleUploadForm() {
+  const form = document.getElementById('upload-form');
+  const trigger = document.querySelector('.upload-trigger');
+  
+  isFormExpanded = !isFormExpanded;
+  form.classList.toggle('expanded');
+  trigger.style.borderStyle = isFormExpanded ? 'solid' : 'dashed';
+  
+  // 動畫控制
+  form.style.maxHeight = isFormExpanded ? '1000px' : '0';
+}
+
