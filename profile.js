@@ -54,3 +54,27 @@ function toggleUploadForm() {
   form.style.maxHeight = isFormExpanded ? '1000px' : '0';
 }
 
+// 歷史紀錄加載函數
+async function loadHistory() {
+  try {
+    const response = await fetch('/.netlify/functions/get-history');
+    const data = await response.json();
+    
+    const container = document.getElementById('history-list');
+    container.innerHTML = data.length > 0 
+      ? data.map(item => `<div class="record">${item.date}: ${item.project}</div>`).join('')
+      : '<div class="no-data">無上傳紀錄</div>';
+      
+    document.getElementById('show-all').classList.toggle('hidden', data.length <= 3);
+    
+  } catch (error) {
+    document.getElementById('history-list').innerHTML = 
+      '<div class="error-msg">查詢失敗，請稍後再試</div>';
+  }
+}
+
+// 網頁載入時執行
+window.addEventListener('load', () => {
+  loadHistory();
+  initLanguage(); // 確保語言初始化
+});
