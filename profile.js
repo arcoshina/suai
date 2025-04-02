@@ -8,7 +8,9 @@ document.getElementById('language-toggle').addEventListener('change', function()
 // 表單驗證與提交
 function validateForm() {
   let isValid = true;
-  document.querySelectorAll('.required input').forEach(input => {
+  
+  // 檢查每個必填欄位
+  document.querySelectorAll('.required input, .required textarea').forEach(input => {
     if (!input.value.trim()) {
       input.classList.add('error');
       isValid = false;
@@ -16,6 +18,7 @@ function validateForm() {
       input.classList.remove('error');
     }
   });
+
   return isValid;
 }
 
@@ -25,18 +28,31 @@ async function submitForm() {
   const formData = {
     timestamp: new Date().toISOString(),
     contractAddress: document.getElementById('contract-address').value,
-    // 其他欄位...
+    projectName: document.getElementById('project-name').value,
+    contractDescription: document.getElementById('contract-description').value,
+    codeSnippet: document.getElementById('code-snippet').value,
+    aiModel: document.getElementById('ai-model').value || null,
+    aiCode: document.getElementById('ai-code').value || null,
     exclusiveLicense: document.getElementById('exclusive-license').checked
   };
 
   try {
     const response = await fetch('/.netlify/functions/handle-upload', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     });
-    // 處理回應...
+
+    if (!response.ok) throw new Error('Upload failed');
+    
+    alert('上傳成功！');
+    
+    // 清空表單
+    document.getElementById('upload-form').reset();
+    
   } catch (error) {
-    showErrorMessage('上傳失敗，請稍後再試');
+    alert('上傳失敗，請稍後再試');
+    console.error(error);
   }
 }
 
