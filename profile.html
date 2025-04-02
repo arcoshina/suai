@@ -28,34 +28,45 @@
   <div class="upload-section">
     <div class="upload-trigger" onclick="toggleUploadForm()">
       <div class="upload-header">我要提供程式碼</div>
-    </div>
+    </div>  
     
     <form id="upload-form" class="hidden">
       <!-- 必填欄位 -->
       <div class="form-group required">
-        <label id="contract-address-label">智能合約地址</label>
-        <input type="text" id="contract-address" required>
+        <label for="contract-address">智能合約地址</label>
+        <input type="text" id="contract-address" placeholder="請輸入智能合約地址" required>
       </div>
-      
-      <!-- 其他欄位... -->
-      
+
+      <div class="form-group required">
+        <label for="project-name">專案名稱</label>
+        <input type="text" id="project-name" placeholder="請輸入專案名稱" required>
+      </div>
+    
+      <div class="form-group required">
+        <label for="contract-description">合約功能描述</label>
+        <textarea id="contract-description" placeholder="請輸入合約功能描述" rows="3" required></textarea>
+      </div>
+    
+      <div class="form-group required">
+        <label for="code-snippet">程式碼</label>
+        <textarea id="code-snippet" placeholder="請輸入程式碼" rows="10" required></textarea>
+      </div>
+    
       <!-- 授權條款 -->
       <div class="terms">
         <a href="#" onclick="toggleTerms(event)">上傳即表示同意條款</a>
         <div id="terms-content" class="hidden">
           <!-- 條款內容 -->
+          此處可填寫授權條款內容。
         </div>
       </div>
-
-      <div class="checkbox-group">
-        <input type="checkbox" id="exclusive-license">
-        <label id="license-label" for="exclusive-license">獨家授權給站方</label>
-      </div>
-
+    
+      <!-- 確定上傳按鈕 -->
       <button type="button" onclick="submitForm()" id="submit-btn">確認上傳</button>
     </form>
   </div>
-
+  
   <script src="profile.js"></script>
 </body>
 </html>
+
