@@ -42,6 +42,40 @@
   animation: shake 0.5s;
 }
 
+/* 表單樣式 */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* 多行文本框樣式 */
+textarea {
+  resize: vertical; /* 可手動調整高度 */
+  overflow-y: auto; /* 滾動條 */
+}
+
+/* 表單錯誤樣式 */
+.error {
+  border-color: red !important;
+}
+
+.error-message {
+  color: red;
+}
+
 .error-message {
   color: red;
   font-size: 0.8rem;
