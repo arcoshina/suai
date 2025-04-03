@@ -46,12 +46,22 @@
         <label for="contract-description">合約功能描述</label>
         <textarea id="contract-description" placeholder="請輸入合約功能描述" rows="3" required></textarea>
       </div>
-    
+
       <div class="form-group required">
         <label for="code-snippet">程式碼</label>
-        <textarea id="code-snippet" placeholder="請輸入程式碼" rows="10" required></textarea>
+        <textarea 
+          id="code-snippet" 
+          placeholder="請輸入程式碼" 
+          rows="10"
+          oninput="updateCodeStats(this.value)"
+          required
+        ></textarea>
+        <div class="code-stats">
+          有效程式碼行數: <span id="effective-lines">0</span>
+          <span class="hint">（已排除空行、註解與純符號行）</span>
+        </div>
       </div>
-    
+   
       <!-- 授權條款 -->
       <div class="terms">
         <a href="#" onclick="toggleTerms(event)">上傳即表示同意條款</a>
