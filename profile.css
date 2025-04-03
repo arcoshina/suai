@@ -67,6 +67,24 @@ textarea {
   overflow-y: auto; /* 滾動條 */
 }
 
+/* 程式碼統計樣式 */
+.code-stats {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.code-stats span#effective-lines {
+  font-weight: bold;
+  color: #2196F3;
+}
+
+.hint {
+  font-style: italic;
+  margin-left: 10px;
+  color: #999;
+}
+
 /* 表單錯誤樣式 */
 .error {
   border-color: red !important;
